@@ -3,7 +3,7 @@ from models.locadora import Locadora
 
 
 def main():
-
+    locadora = Locadora()
     carro = Carro(None, None, None)
     opcao = 0
     while True:
@@ -23,8 +23,10 @@ def main():
                 valor_diaria = float(input('Digite o valor da diária R$: '))
                 
                 carro = Carro(modelo, ano, valor_diaria)
+                locadora.adicionar_carro(carro)
+
             case 2:
-                pass
+                locadora.listar_carros_disponiveis()
             case 3:
                 pass
             case 4:

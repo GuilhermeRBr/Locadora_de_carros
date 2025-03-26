@@ -4,7 +4,9 @@ class Carro:
         self.ano = ano
         self.valor_diaria = valor_diaria
         self.disponivel = True
-        print('Carro adicionado com sucesso !!')
+
+    def exibir_disponivel(self):
+        print(f'\nModelo: {self.modelo} | Ano: {self.ano} | Valor da diaria R$: {self.valor_diaria}')
 
     def alugar(self):
         self.disponivel = False
