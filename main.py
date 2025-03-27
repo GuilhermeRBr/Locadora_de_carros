@@ -1,5 +1,6 @@
 from models.carros import Carro
 from models.locadora import Locadora
+from ultils.checks import verificar_ano
 
 
 def main():
@@ -15,35 +16,47 @@ def main():
         '4 - Devolver um carro, informando quantos dias ficou com ele.\n'
         '5 - Sair do programa.\n')
 
-        opcao = int(input('Digite o numero da opção: '))
+        opcao = input('Digite o numero da opção: ')
+        print('')
         print('-' * 50)
 
-        match opcao:
-            case 1:
-                modelo = str(input('\nDigite o modelo do carro: ').lower())
-                ano = int(input('Digite o ano: '))
-                valor_diaria = float(input('Digite o valor da diária R$: '))
-                
-                carro = Carro(modelo, ano, valor_diaria, True)
-                locadora.adicionar_carro(carro)
+        if opcao.isdigit():
+            opcao = int(opcao)
+            match opcao:
+                case 1:
+                    modelo = input('\nDigite o modelo do carro: ').lower()
+                    ano = verificar_ano()
+                    valor_diaria = input('Digite o valor da diária R$: ')
+                    
+                    while True:
+                        if valor_diaria.isdigit():
+                            valor_diaria = float(valor_diaria)
+                            break
+                        print('Valor inválido, digite novamente !!')
+                        valor_diaria = input('Digite o valor da diária R$: ')
 
-            case 2:
-                locadora.listar_carros_disponiveis()
+                    carro = Carro(modelo, ano, valor_diaria, True)
+                    locadora.adicionar_carro(carro)
 
-            case 3:
-                modelo = str(input('\nDigite o modelo que deseja alugar: ').lower())
-                locadora.alugar_carro(modelo)
+                case 2:
+                    locadora.listar_carros_disponiveis()
 
-            case 4:
-                modelo = str(input('\nDigite o modelo que está alugado: ').lower())
-                dias = int(input('Quantos dias ficou com o carro: '))
+                case 3:
+                    modelo = str(input('\nDigite o modelo que deseja alugar: ').lower())
+                    locadora.alugar_carro(modelo)
 
-                locadora.devolver_carro(modelo, dias)
+                case 4:
+                    modelo = str(input('\nDigite o modelo que está alugado: ').lower())
+                    dias = int(input('Quantos dias ficou com o carro: '))
 
-            case 5:
-                print('\nEncerrando programa...')
-                break
+                    locadora.devolver_carro(modelo, dias)
 
-            case _:
-                print('\nDigite uma opção valida !!')
+                case 5:
+                    print('\nEncerrando programa...')
+                    break
+
+                case _:
+                    print('\nDigite uma opção valida !!\n')
+        else:
+            print('\nDigite uma opção valida !!\n')
 main()

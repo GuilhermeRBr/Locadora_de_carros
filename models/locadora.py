@@ -1,16 +1,17 @@
 from models.carros import Carro
+from ultils.checks import formatar_dinheiro
 
 class Locadora():
     def __init__(self):
         self.carros = [Carro(
-            modelo='honda', ano=2009, valor_diaria= 500, disponivel=True),
-            Carro(modelo='toyota', ano=2010, valor_diaria= 600, disponivel=True),
-            Carro(modelo='ford', ano=2011, valor_diaria= 700, disponivel=False),
+            modelo='honda', ano=2009, valor_diaria=500, disponivel=True),
+            Carro(modelo='toyota', ano=2010, valor_diaria=600, disponivel=True),
+            Carro(modelo='ford', ano=2011, valor_diaria=700, disponivel=False),
             ]
 
     def adicionar_carro(self, carro):
         self.carros.append(carro)
-        print('\nCarro adicionado com sucesso !!') 
+        print('\nCarro adicionado com sucesso !!\n') 
 
     def listar_carros_disponiveis(self):
         if not self.carros:
@@ -18,7 +19,7 @@ class Locadora():
             return
         for carro in self.carros:
               if carro.disponivel:
-                print(f'\nModelo: {carro.modelo} | Ano: {carro.ano} | Valor da diaria R$: {carro.valor_diaria}')
+                print(f'\nModelo: {carro.modelo.capitalize()} | Ano: {carro.ano} | Valor da diaria: {formatar_dinheiro(carro.valor_diaria)}')
 
     def alugar_carro(self, modelo):
         if not self.carros:
