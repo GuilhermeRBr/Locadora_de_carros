@@ -4,9 +4,9 @@ from ultils.checks import formatar_dinheiro
 class Locadora():
     def __init__(self):
         self.carros = [Carro(
-            modelo='honda', ano=2009, valor_diaria=500, disponivel=True),
-            Carro(modelo='toyota', ano=2010, valor_diaria=600, disponivel=True),
-            Carro(modelo='ford', ano=2011, valor_diaria=700, disponivel=False),
+            modelo='civic', ano=2009, valor_diaria=150, disponivel=True),
+            Carro(modelo='hillux', ano=2015, valor_diaria=200, disponivel=True),
+            Carro(modelo='focus', ano=2011, valor_diaria=100, disponivel=False),
             ]
 
     def adicionar_carro(self, carro):
@@ -20,6 +20,7 @@ class Locadora():
         for carro in self.carros:
               if carro.disponivel:
                 print(f'\nModelo: {carro.modelo.capitalize()} | Ano: {carro.ano} | Valor da diaria: {formatar_dinheiro(carro.valor_diaria)}')
+        print('')
 
     def alugar_carro(self, modelo):
         if not self.carros:
@@ -28,20 +29,20 @@ class Locadora():
         
         for carro in self.carros:
             if modelo.lower() == carro.modelo.lower():  
-                print('Parabens, você alugou um novo veiculo')
+                print('\nParabens, você alugou um novo veiculo')
                 carro.alugar()
                 return
             
-        print(f'{modelo} Não esta disponivel para aluguel') 
+        print(f'\n{modelo} Não esta disponivel para aluguel') 
 
 
 
     def devolver_carro(self, modelo, dias):
         if not self.carros:
-            print('Não há carros na locadora !!')
+            print('\nNão há carros na locadora !!')
             return
         for carro in self.carros:
             if modelo.lower() == carro.modelo.lower():
-                carro.devolver(modelo, dias)
+                print(f'\nO valor a ser pago pelo aluguel do {modelo} é de: {formatar_dinheiro(carro.devolver(dias))}\nObrigado por alugar conosco!!\n')
                 return
-        print(f'Este modelo não se encontra na nossa locadora!!')
+        print(f'\nEste modelo não se encontra na nossa locadora!!')
