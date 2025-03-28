@@ -1,5 +1,5 @@
 from models.carros import Carro
-from ultils.checks import formatar_dinheiro
+from utils.checks import formatar_dinheiro
 
 class Locadora():
     def __init__(self):

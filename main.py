@@ -1,6 +1,6 @@
 from models.carros import Carro
 from models.locadora import Locadora
-from ultils.checks import verificar_ano, verificar_float, verificar_int
+from utils.checks import verificar_ano, verificar_float, verificar_int
 
 
 def main():
