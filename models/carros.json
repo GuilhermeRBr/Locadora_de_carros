@@ -1,0 +1,38 @@
+[
+    {
+        "modelo": "civic",
+        "ano": 2009,
+        "valor_diaria": 150,
+        "disponivel": true
+    },
+    {
+        "modelo": "hillux",
+        "ano": 2015,
+        "valor_diaria": 200,
+        "disponivel": true
+    },
+    {
+        "modelo": "focus",
+        "ano": 2011,
+        "valor_diaria": 100,
+        "disponivel": true
+    },
+    {
+        "modelo": "corolla",
+        "ano": 2020,
+        "valor_diaria": 200.0,
+        "disponivel": true
+    },
+    {
+        "modelo": "renegade",
+        "ano": 2019,
+        "valor_diaria": 150.0,
+        "disponivel": true
+    },
+    {
+        "modelo": "saveiro",
+        "ano": 2015,
+        "valor_diaria": 100.0,
+        "disponivel": true
+    }
+]

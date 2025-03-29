@@ -4,12 +4,9 @@ class Carro:
         self.ano = ano
         self.valor_diaria = valor_diaria
         self.disponivel = disponivel
-
-    def alugar(self):
-        self.disponivel = False
-    
-    def devolver(self, dias):
-        self.disponivel = True
-        valor_aluguel= self.valor_diaria * dias
+ 
+    @staticmethod
+    def devolver(dias, valor_diaria):
+        valor_aluguel= valor_diaria * dias
         return valor_aluguel
         
